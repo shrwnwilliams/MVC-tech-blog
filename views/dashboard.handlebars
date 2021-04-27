@@ -1,8 +1,8 @@
 {{#each posts as |post|}}
 <div>
     <h2>
-        <a href="/post/:{{post.id}}">{{post.title}}</a>
+        <a href="/post/{{post.id}}">{{post.title}}</a>
     </h2>
-    <p>Posted: {{format_date post.date_posted}} by</p>
+    <p>Posted: {{post.date_posted}} by {{user.username}}</p>
 </div>
 {{/each}}
