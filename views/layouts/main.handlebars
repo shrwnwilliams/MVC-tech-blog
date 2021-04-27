@@ -12,22 +12,20 @@
 
 <body>
 <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-around align-center p-2 bg-info">
+    <header class="display-flex justify-space-between align-center p-2 bg-info">
       <h1>
-        <a href="/">Home</a>
+        <a href="/" class="text-light">Home</a>
       </h1>
       <nav>
-        <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">New Post</a> |
-        <button class="no-button" id="logout">Logout</button>
+        <a href="/post" class="text-light">New Post</a> |
+        <button class="btn-link" id="logout">Logout</button>
         {{else}}
-        <a href="/login">Login</a>
+        <a href="/login" class="text-light">Login</a>
         {{/if}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
       {{{ body }}}
     </main>
   </div>
