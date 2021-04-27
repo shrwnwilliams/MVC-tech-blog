@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 // router.get("/", async (req, res) => {
 //     try {
-//         const postData = await Post.
+        
 
 //     } catch (err){
 //         res.status(500).json(err);
@@ -13,7 +13,7 @@ const withAuth = require("../utils/auth");
 
 
 
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [
@@ -47,6 +47,16 @@ router.get("/:id", async (req, res) => {
     } catch (err) {
         res.status(400).json(err)
     }
+});
+
+router.get("/login", (req, res) => {
+    if (req.session.logged_in) {
+        // res.redirect("/dashboard");
+        res.status(200).json({ message: "dashboard html doesn't exist yet" })
+        return;
+    }
+
+    res.status(400).json({ message: "you must log in first" })
 })
 
 module.exports = router;
