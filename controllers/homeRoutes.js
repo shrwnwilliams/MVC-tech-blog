@@ -21,12 +21,16 @@ router.get("/dashboard", withAuth, async (req, res) => {
         const posts = postData.map((post) => post.get({ plain: true }));
         res.status(200).json(posts);
 
+        res.render("dashboard", {
+            posts,
+            logged_in: req.session.logged_in
+        });
     } catch (err){
         res.status(500).json(err);
     }
 })
 
-router.get("/:id", async (req, res) => {
+router.get("/post/:id", async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -46,12 +50,12 @@ router.get("/:id", async (req, res) => {
 
 router.get("/login", (req, res) => {
     if (req.session.logged_in) {
-        // res.redirect("/dashboard");
-        res.status(200).json({ message: "dashboard html doesn't exist yet" })
+        res.redirect("/dashboard");
+        // res.status(200).json({ message: "dashboard html doesn't exist yet" })
         return;
     }
 
-    res.status(400).json({ message: "you must log in first" })
+    res.render("login")
 })
 
 module.exports = router;
