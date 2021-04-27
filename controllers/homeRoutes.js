@@ -19,7 +19,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
             ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        res.status(200).json(posts);
+        // res.status(200).json(posts);
 
         res.render("dashboard", {
             posts,
