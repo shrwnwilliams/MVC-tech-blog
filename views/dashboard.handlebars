@@ -3,6 +3,6 @@
     <h2>
         <a href="/post/{{post.id}}">{{post.title}}</a>
     </h2>
-    <p>Posted: {{post.date_posted}} by {{user.username}}</p>
+    <p>Posted: {{format_date post.date_posted}} by {{user.username}}</p>
 </div>
 {{/each}}

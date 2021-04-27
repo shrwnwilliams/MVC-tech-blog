@@ -42,11 +42,17 @@ router.get("/post/:id", withAuth, async (req, res) => {
                 },
             ]
         });
+        
+        // const commentData = await Comment.findAll({
+        //     where: { post_id: req.params.id}
+        // });
 
         const post = postData.get({ plain: true })
+        // const comments = commentData.map((comment) => comment.get({ plain: true }));
     
         res.render("single", {
             ...post,
+            // ...comments,
             logged_in: req.session.logged_in
         });
 

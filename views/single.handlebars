@@ -2,6 +2,12 @@
     <h2>
         {{title}}
     </h2>
-    <p>Posted: {{date_posted}} by {{user.username}}</p>
+    <p>Posted: {{format_date date_posted}} by {{user.username}}</p>
     <p>{{content}}</p>
 </div>
+
+{{!-- <div>Comments</div>
+{{#each comments as |comment|}}
+<p>{{user.username}}</p>
+<p>{{comment}}</p>
+{{/each}} --}}
