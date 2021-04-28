@@ -14,11 +14,12 @@
 <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2 bg-info">
       <h1>
-        <a href="/dashboard" class="text-light">Home</a>
+        <a href="/" class="text-light">Home</a>
       </h1>
       <nav>
         {{#if logged_in}}
-        <a href="/post" class="text-light">New Post</a> |
+        <a href="/dashboard" class="text-light">Dashboard</a> |
+        <a href="/profile" class="text-light">Profile</a> |
         <button class="btn-link" id="logout">Logout</button>
         {{else}}
         <a href="/login" class="text-light">Login</a>
